@@ -1,0 +1,18 @@
+<div id="leftside">
+    {{ partial "toc.html" .}}
+
+    {{ partial "graph.html" .}}
+</div>
+
+<div id="rightside">
+    <h2 id="sidenotetitle"></h2>
+    
+    {{content}}
+    {{ partial "sidenotes.html" .}}
+
+    {{ partial "callouts.html" .}}
+
+  
+</div>
+
+<script defer src="./js/mobilefriendly.js"></script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ partial "head.html" .}}
+</head>
+<header>
+  {{ partial "header.html" .}}
+</header>
+<body>
+  <div id="description">
+    <i>{{description}}</i>
+  </div>
+  
+  <div id="page">
+  {{ partial "body.html" .}}
+  </div>
+  
+  
+  <div id="backlinks">
+    <h2 id="backlinkstitle">Backlinks</h2>
+    {{ partial "backlinks.html" . }}
+  </div>
+  
+</body>
+
+</html>
