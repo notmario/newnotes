@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+  font-size: 1.25em;
+  font-family: 'Comic Neue', cursive;
+  color: white;
+}
+* {
+  margin: 0;
+}
+body {
+  padding: 0rem;
+  background-color: #28012f;
+}
+a {
+  text-decoration: underline dashed;
+  color: #e59df1;
+}
+a:visited {
+  color: #9046cc;
+}
+blockquote {
+  font-style: italic;
+  color: #e59df1;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  padding-left: 0.5rem;
+  border-left: 2px dashed #e59df1;
+  background-color: #e59df12f;
+}
+hr {
+  border: 1px dashed #e59df1;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h2, h3 {
+  margin-top: 1rem;
+}
+img {
+  width: 512px;
+  height: 512px;
+  image-rendering: crisp-edges;
+}
+main {
+  width: calc(100% - 18rem);
+  padding: 1rem;
+}
+nav {
+  width: 18rem;
+  float: right;
+  margin-left: 1rem;
+  height: 100vh;
+  position:static;
+  top: 0rem;
+  right: 0rem;
+  background-color: #e59df11f;
+}
