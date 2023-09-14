@@ -17,7 +17,7 @@ ignore = [
 # leaving it as 'default' makes all pages the 'default' theme.
 # if you want a custom theme for ALL pages, switch here. 
 # custom themes for specific pages will be setup else where!
-theme = 'minimal'
+theme = 'cooltheme'
 
 # uncomment if you want a baseurl
 # base_url = 'https://example.com/'
