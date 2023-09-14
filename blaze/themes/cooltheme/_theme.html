@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-  <nav>
-    {{ partial "backlinks.html" . }}
-  </nav>
   <main>
     <h1>{{title}}</h1>
     <hr/>
     {{content}}
   </main>
+  <nav>
+    <h1>what links here?</h1>
+    {{ partial "backlinks.html" . }}
+  </nav>
 </body>
 </html>
