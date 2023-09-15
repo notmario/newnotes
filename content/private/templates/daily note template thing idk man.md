@@ -1,0 +1,1 @@
+([back](daily.md))
