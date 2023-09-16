@@ -1,50 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-:root {
-  font-size: 1.25em;
-  font-family: 'Comic Neue', cursive;
-  color: white;
-}
 * {
   margin: 0;
   box-sizing: border-box;
 }
 body {
   padding: 0rem;
-  background-color: #28012f;
+  background-color: var( --background );
 }
 a {
   text-decoration: underline dashed;
-  color: #e59df1;
+  color: var( --highlight );
 }
 a:visited {
-  color: #9046cc;
+  color: var( --highlight-2 );
 }
 blockquote {
   font-style: italic;
-  color: #e59df1;
+  color: var( --highlight );
   margin-left: 0rem;
   margin-right: 0rem;
   padding-left: 0.5rem;
-  border-left: 2px dashed #e59df1;
-  background-color: #e59df12f;
+  border-left: 2px dashed var( --highlight );
+  background-color: var( --lowlight );
 }
 hr {
-  border: 1px dashed #e59df1;
+  border: 1px dashed var( --highlight );
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 h2, h3 {
   margin-top: 1rem;
 }
-img {
-  width: 512px;
-  height: 512px;
-  image-rendering: crisp-edges;
-}
 main {
   width: calc(50rem);
   padding: 1rem;
-  margin-left: calc(50% - 25rem - 9rem); /* they call me john css */
+  margin-left: calc(50% - 25rem - 9rem);
 }
 nav {
   width: 18rem;
@@ -54,11 +43,17 @@ nav {
   position:fixed;
   top: 0rem;
   right: 0rem;
-  background-color: #e59df11f;
+  background-color: var( --lowlight );
   padding :1rem;
 }
 nav a {
-  color: #e59df1 !important; /* fucking hell css aarhg */
+  color: var( --highlight ) !important; 
+}
+
+img:not(.calloutimage) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 85rem) {
@@ -77,4 +72,77 @@ nav a {
     width: 100%;
     height: unset;
   }
+}
+
+/* callouts !! */
+
+#callout {
+  padding: 12px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.info-callout {
+  background-color: var(--lightblue);
+}
+
+.quote-callout {
+  background-color: var(--peach);
+}
+
+.note-callout {
+  background-color: var(--darkerlightblue);
+}
+
+.abstract-callout {
+  background-color: var(--lightestblue);
+}
+
+.example-callout {
+  background-color: var(--purple);
+}
+
+.todo-callout {
+  background-color: var(--lightblue);
+}
+
+.tip-callout {
+  background-color: var(--lightestblue);
+}
+
+.success-callout {
+  background-color: var(--green);
+}
+
+.question-callout {
+  background-color: var(--yellow);
+}
+
+.warning-callout {
+  background-color: var(--orange);
+}
+
+.failure-callout {
+  background-color: var(--red);
+}
+
+.danger-callout {
+  background-color: var(--red);
+}
+
+.bug-callout, .missing-callout {
+  background-color: var(--red);
+}
+
+
+#callout-header {
+  display: flex;
+  border-bottom: 1.5px solid var(--text);
+  padding-bottom: 3px;
+}
+
+#callout-title {
+  margin: 0;
+  margin-left: 2%;
+  font-size: 26px;
 }

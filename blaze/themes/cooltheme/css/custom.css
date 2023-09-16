@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* edit fonts and colours here!! */ 
+
+:root {
+  font-size: 1.25em;
+  font-family: 'Comic Neue', cursive;
+  color: white;
+
+  --text: #ffffff;
+  --background: #28012f;
+  --highlight: #e59df1;
+  --highlight-2: #9046cc;
+  --lowlight: #e59df12f;
+}
