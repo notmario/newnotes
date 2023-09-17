@@ -1,4 +1,3 @@
 ([back](daily.md))
 
-will this go anywhere? i dunno
-
+will this go anywhere? i dunno  
