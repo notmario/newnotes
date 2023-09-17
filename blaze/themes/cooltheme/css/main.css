@@ -1,6 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  color: var( --text );
 }
 body {
   padding: 0rem;
@@ -77,72 +78,96 @@ img:not(.calloutimage) {
 /* callouts !! */
 
 #callout {
-  padding: 12px;
-  border-radius: 5px;
-  width: fit-content;
+  padding: 0.25rem;
+  padding-left: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .info-callout {
-  background-color: var(--lightblue);
+  background-color: var( --lightblue-bg );
+  border-left: var( --lightblue ) 2px dashed;
+  --emoji: 'ℹ️';
 }
 
 .quote-callout {
-  background-color: var(--peach);
+  background-color: var( --peach-bg );
+  border-left: var( --peach ) 2px dashed;
+  --emoji: '📜';
 }
 
 .note-callout {
-  background-color: var(--darkerlightblue);
+  background-color: var(--darkerlightblue-bg);
+  border-left: var(--darkerlightblue) 2px dashed;
+  --emoji: '📓';
 }
 
 .abstract-callout {
-  background-color: var(--lightestblue);
+  background-color: var(--lightestblue-bg);
+  border-left: var(--lightestblue) 2px dashed;
+  --emoji: '🕰️';
 }
 
 .example-callout {
-  background-color: var(--purple);
+  background-color: var(--purple-bg);
+  border-left: var(--purple) 2px dashed;
+  --emoji: '🧾';
 }
 
 .todo-callout {
-  background-color: var(--lightblue);
+  background-color: var( --lightblue-bg );
+  border-left: var( --lightblue ) 2px dashed;
+  --emoji: '📝';
 }
 
 .tip-callout {
-  background-color: var(--lightestblue);
+  background-color: var(--lightestblue-bg);
+  border-left: var(--lightestblue) 2px dashed;
+  --emoji: '💡';
 }
 
 .success-callout {
-  background-color: var(--green);
+  background-color: var(--green-bg);
+  border-left: var(--green) 2px dashed;
+  --emoji: '✅';
 }
 
 .question-callout {
-  background-color: var(--yellow);
+  background-color: var(--yellow-bg);
+  border-left: var(--yellow) 2px dashed;
+  --emoji: '❓';
 }
 
 .warning-callout {
-  background-color: var(--orange);
+  background-color: var(--orange-bg);
+  border-left: var(--orange) 2px dashed;
+  --emoji: '⚠️';
 }
 
 .failure-callout {
-  background-color: var(--red);
+  background-color: var(--red-bg);
+  border-left: var(--red) 2px dashed;
+  --emoji: '❌';
 }
 
 .danger-callout {
-  background-color: var(--red);
+  background-color: var(--red-bg);
+  border-left: var(--red) 2px dashed;
+  --emoji: '🚨';
 }
 
 .bug-callout, .missing-callout {
-  background-color: var(--red);
-}
-
-
-#callout-header {
-  display: flex;
-  border-bottom: 1.5px solid var(--text);
-  padding-bottom: 3px;
+  background-color: var(--red-bg);
+  border-left: var(--red) 2px dashed;
+  --emoji: '🐛';
 }
 
 #callout-title {
-  margin: 0;
-  margin-left: 2%;
   font-size: 26px;
+}
+#callout-title::before {
+  content: var( --emoji );
+  font-style: normal;
+  padding-right: 0.5rem;
 }
