@@ -12,5 +12,9 @@ things that will be in this long and interesting paragraph:
 - [why isn't any of this educational](whynotlearning.md) (or whatever you get what i mean)  
   
 [daily notes](daily.md)? those are cool? right?  
+
+## stuff
+there is not much stuff.  
+[guide to pico 8](guidetopico8.md) that i am currently making  
   
 [my actual website with actual things on it](https://notmario.github.io/)  
