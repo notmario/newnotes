@@ -51,7 +51,7 @@ if you want to change the sign's message, scroll down in the code editor and cha
 let's save your game, then share it as a **.p8.png** cartridge.  
 before you share it, remember to reset `level=1`, or don't, if you want players to start directly at your new level.  
   
-now let's go back to the root folder by running *cd ..*.
+now let's go back to the root folder by running *cd /*.  
 to save your new cartridge, run *save filename*, where filename is the filename you want to save it with. this will save it as *filename.p8* in the root directory.  
 let's open the folder! run *folder* to open it in your operating system's file manager. you can share the .p8 file, but...  
 run *export filename.p8.png*. this will save it as a shareable, playable, p8 file. to change the icon for it, press *ctrl+shift+7* in game. to change the text, edit the first two lines in the code editor.  
