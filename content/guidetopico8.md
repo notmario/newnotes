@@ -60,4 +60,4 @@ here is the finished example cartridge, following these instructions.
 ![[jelpiedited.p8.png]]  
 (you can save and run this!)
 
-== part 2 coming soon
+== part 2 coming soon ==
