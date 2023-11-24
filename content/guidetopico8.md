@@ -60,4 +60,55 @@ here is the finished example cartridge, following these instructions.
 ![jelpiedited.p8.png](./assets/jelpiedited.p8.png)  
 (you can save and run this!)
 
-== part 2 coming soon ==
+## making your own games
+now to learn the basics of game development. first, type *reboot* to reload the pico-8 and clear out the old game.  
+now, let's press *escape* to open the code editor.  
+### structure of a pico-8 game
+there are three functions which are part of a pico-8 game. **\_init**, **\_update**, and **\_draw**.  
+the **\_init** function is called when the game starts, so it is used to set the initial state of the game.  
+the **\_update** function is called once every frame. this is useful for the logic of the game.  
+the **\_draw** function is also called once every frame... however if the game is lagging, the draw function will wait, whereas the update function will keep running, resulting in low FPS, but the same gameplay.  
+
+let's start by going into the sprite editor and drawing a player sprite. you can use any sprite slot, but I will use sprite slot 001.  
+![pico8-playersprite.png](./assets/pico8-playersprite.png)  
+now let's go back into the code editor and type out our three functions.  
+![pico8-corefunctions.png](./assets/pico8-corefunctions.png)  
+in this demo game, we'll have a player that can move around a 2D world with two screens.  
+to start, let's create some variables to store the player's position, and draw them in onto the screen using the **spr** command.  
+the screen of the pico-8 is 128x128 px large.  
+![pico8-spr.png](./assets/pico8-spr.png)  
+![pico8-nocls.png](./assets/pico8-nocls.png)  
+there it is! our player! but you may notice that the "run" text is still on screen.  
+this is because pico-8 **does not clear the screen by default**. let's add that in now by creating a map.  
+draw in some sprites for grass and a wall, and place them into your map editor, in a 16x16 grid of tiles.  
+now, just by calling the **map** function in our draw step, you can have your map rendered to the screen!  
+![pico8-map1.png](./assets/pico8-map1.png)  
+![pico8-map2.png](./assets/pico8-map2.png)  
+![pico8-map3.png](./assets/pico8-map3.png)  
+this is great! now let's get the player moving.  
+### inputs
+let's write out our **\_update** function now.  
+you can check for player input by using the **btn** function in the update step. it takes two arguments, but the second one is optional.  
+(you can write out direction symbols, and the X and O buttons by typing shift+L/R/U/D/X/O)  
+![pico8-input2.png](./assets/pico8-input1.png)  
+![pico8-input1.png](./assets/pico8-input2.png)  
+that's great! but we have one issue. the player can walk through walls. we haven't stopped them from doing so. let's do so now, using sprite flags.  
+to start, go back to the sprite editor to your wall sprite, and click on one of the eight circular buttons to set a flag we can check for in code.  
+![pico8-setspriteflag.png](./assets/pico8-setspriteflag.png)  
+now, let's write a function to check sprite flags (as doing it manually would be quite repetitive)  
+### helper function
+in this function, we'll use the **mget** and **fget** functions to get the contents of the map at a position, and if it has a certain flag set.  
+![pico8-checkfunction.png](./assets/pico8-checkfunction.png)  
+![pico8-collisionprevention.png](./assets/pico8-collisionprevention.png)  
+(the offsets are different due to the player being drawn at the top left corner)
+
+alright! your player should now be stopped by walls!  
+now, let's add a second screen.
+
+### moving the camera
+start by drawing a collectible sprite (with its own flag) and creating a 16x16 screen to the right of your current one involving it. include an entryway to it on your first screen.  
+![pico8-collectablesprite.png](./assets/pico8-collectablesprite.png)  
+![pico8-collectablemaze.png](./assets/pico8-collectablemaze.png)  
+brilliant! let's test out our new screen by walking to the right and... oh.  
+we need to manually move the camera to the right when the player reaches the second screen.  
+go back to the **\_draw** function in your code editor, and add this code snippet to it.  
