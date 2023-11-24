@@ -100,7 +100,6 @@ now, let's write a function to check sprite flags (as doing it manually would be
 in this function, we'll use the **mget** and **fget** functions to get the contents of the map at a position, and if it has a certain flag set.  
 ![pico8-checkfunction.png](./assets/pico8-checkfunction.png)  
 ![pico8-collisionprevention.png](./assets/pico8-collisionprevention.png)  
-(the offsets are different due to the player being drawn at the top left corner)
 
 alright! your player should now be stopped by walls!  
 now, let's add a second screen.
@@ -112,3 +111,31 @@ start by drawing a collectible sprite (with its own flag) and creating a 16x16 s
 brilliant! let's test out our new screen by walking to the right and... oh.  
 we need to manually move the camera to the right when the player reaches the second screen.  
 go back to the **\_draw** function in your code editor, and add this code snippet to it.  
+![pico8-screencamera.png](./assets/pico8-screencamera.png)  
+this uses two new functions, **flr** and **camera**. flr is the standard floor function, and **camera** sets the origin of the game's camera to the position provided.  
+now, let's add
+### collectibles
+let's add some new variables to our **\_init** function.  
+![pico8-collectiblecount.png](./assets/pico8-collectiblecount.png)  
+let's add some code to render how many we have!  
+![pico8-collectibleprint.png](./assets/pico8-collectibleprint.png)  
+![pico8-collectibledisplay.png](./assets/pico8-collectibledisplay.png)  
+this uses two new features. the **..** operator, and the **print** function. the **..** operator concatenates two strings (or converts numbers into strings). the **print** function has one, three, or four arguments.  
+you can just have **print("text")** to print some text to screen, **print("text", x, y)** to move it around, and **print("text", x, y, col)** to print it in a certain colour.  
+now, let's make it so you can actually pick up the collectibles!  
+add this to your **\_update** function after the movement.  
+![pico8-collecting.png](./assets/pico8-collecting.png)  
+this uses the **mset** function, which works quite like the **mget** function, except it has a third argument which determines what the tile will become.  
+this should work, but it's a bit bland. time to introduce...
+### the sound editor
+here you can create sound effects and parts for music (which will come later).  
+let's create a simple sound effect for when the player collects a coin.  
+![pico8-sfxeditor.png](./assets/pico8-sfxeditor.png)  
+if the sound effect is too fast or too slow, edit the "spd" value at the top. lower values are faster.  
+now go back to your code editor, and add the **sfx** function into your collectible code.  
+![pico8-sfx.png](./assets/pico8-sfx.png)  
+now your sound effect should play when you collect the coin!  
+finally, let's add some...
+### music
+go back to the sound editor, open a new sound, and click the other button at the top-left. this opens the **tracker** view for the sound effect you have selected.  
+== todo! the music editor! ==
