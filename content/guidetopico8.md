@@ -139,3 +139,5 @@ finally, let's add some...
 ### music
 go back to the sound editor, open a new sound, and click the other button at the top-left. this opens the **tracker** view for the sound effect you have selected.  
 == todo! the music editor! ==
+
+## other useful things
