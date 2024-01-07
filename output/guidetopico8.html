@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="">
+  <title>guide to pico8</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/custom.css">
+  <link rel="icon" type="image/png" href="./assets/newfavicon.png">
+</head>
+<body>
+  <main>
+    <h1>guide to pico8</h1>
+    <hr/>
+    <h2>preface</h2>
+<p>this is not <a href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html">a full instruction manual for pico8</a>. that exists.<br />
+this is just meant to be a basic introduction to making games in it, and some effects that are useful.<br />
+think of it like a cookbook.<br />
+basic familiarity with simple programming patterns is assumed.</p>
+<h2>the console</h2>
+<p>when you open pico-8 you will be met with this screen.<br />
+<img src="./assets/pico8-init.png" alt="pico8-init.png" /><br />
+this is the <strong>console</strong>. this is where you will switch between games, and save and load them.<br />
+you can type <em>help</em> to open this help message. (lowercase is shown as uppercase, and uppercase is shown as various symbols)<br />
+<img src="./assets/pico8-help.png" alt="pico8-help.png" /><br />
+these are the commands you can use to navigate pico-8's filesystem and load games.<br />
+you can start by running <em>install_demos</em> to install some demo games onto your system to the <em>/demos/</em> folder.<br />
+at any time, you can run <em>ls</em> to show what is in the current directory.<br />
+<img src="./assets/pico8-demos.png" alt="pico8-demos.png" /><br />
+if you run it now, all you'll see is the <em>demos</em> folder. let's go into it.
+you can run <em>cd demos</em> to enter the demos folder. if you want to go back, run <em>cd ..</em> to go to the folder above you, or <em>cd /</em> to go to the root of the filesystem (you start there).
+let's see what's in the demos folder.<br />
+<img src="./assets/pico8-cd.png" alt="pico8-cd.png" /><br />
+here are some demo <strong>.p8 files</strong>, one way of sharing pico-8 games.<br />
+let's give one of them a go! type <em>load jelpi</em> to load in the <em>jelpi.p8</em> file, and type <em>run</em> to run it.<br />
+the default controls for pico-8 on a desktop computer are the arrows, z for the {O} button and x for the {X} button.</p>
+<p>try and beat the first level of jelpi. if you do, you will notice that the second level is empty! oh no! let's fix the game so it has a second level. press escape to close the game.</p>
+<h2>the editors</h2>
+<p>pico-8 can edit any .p8 file that you find. let's start by editing jelpi.</p>
+<p>press escape to open the editors! you'll see a lot of code. ignore it for now.<br />
+<img src="./assets/pico8-editor.png" alt="pico8-editor.png" /><br />
+there are several tabs up the top. at the top left, there are code tabs, for organisation. at the top right, there are the different editors. you can click on the icons to change editor.</p>
+<h3>the sprite editor</h3>
+<p>this one's the easiest to understand, so we'll start here. here you can edit the sprites that are used in the game. there are various tools and colours to use. there are also some tabs 0-3 above the array of sprites, to view different sprite banks.<br />
+banks 2 and 3 may look a bit odd, however this is because the second half of the sprite editor and the second half of the map editor (coming later) share the same memory meaning only one can be used at a time.<br />
+try editing some of the sprites! in this game, black is used as the transparent colour. when you make your own game, you can pick your own colour to act as transparent.<br />
+<img src="./assets/pico8-spriteeditor.png" alt="pico8-spriteeditor.png" /></p>
+<h3>the map editor</h3>
+<p>here you can edit the game's map. some games won't use this, but it is invaluable in others.<br />
+you can use the arrow keys to scroll the view to see other parts.<br />
+in jelpi, level 2 is stored directly below level 1. try building a level!<br />
+<img src="./assets/pico8-mapeditor.png" alt="pico8-mapeditor.png" /></p>
+<h3>the code editor</h3>
+<p>in the code editor, you can program the game.<br />
+there's one thing we'll have to do before you can test your new level. go back to the first tab, and change <code>level=1</code> in the code to <code>level=2</code>. now play your new level! if you want to improve it, do so.
+if you want to change the sign's message, scroll down in the code editor and change the value of <code>sign_str</code>.
+<img src="./assets/pico8-editedjelpi.png" alt="pico8-editedjelpi.png" /></p>
+<h2>sharing</h2>
+<p>let's save your game, then share it as a <strong>.p8.png</strong> cartridge.<br />
+before you share it, remember to reset <code>level=1</code>, or don't, if you want players to start directly at your new level.</p>
+<p>now let's go back to the root folder by running <em>cd /</em>.<br />
+to save your new cartridge, run <em>save filename</em>, where filename is the filename you want to save it with. this will save it as <em>filename.p8</em> in the root directory.<br />
+let's open the folder! run <em>folder</em> to open it in your operating system's file manager. you can share the .p8 file, but...<br />
+run <em>export filename.p8.png</em>. this will save it as a shareable, playable, p8 file. to change the icon for it, press <em>ctrl+shift+7</em> in game. to change the text, edit the first two lines in the code editor.<br />
+to load a p8.png, copy it into your pico-8 folder, then type <em>load filename</em>.
+here is the finished example cartridge, following these instructions.<br />
+<img src="./assets/jelpiedited.p8.png" alt="jelpiedited.p8.png" /><br />
+(you can save and run this!)</p>
+<h2>making your own games</h2>
+<p>now to learn the basics of game development. first, type <em>reboot</em> to reload the pico-8 and clear out the old game.<br />
+now, let's press <em>escape</em> to open the code editor.</p>
+<h3>structure of a pico-8 game</h3>
+<p>there are three functions which are part of a pico-8 game. <strong>_init</strong>, <strong>_update</strong>, and <strong>_draw</strong>.<br />
+the <strong>_init</strong> function is called when the game starts, so it is used to set the initial state of the game.<br />
+the <strong>_update</strong> function is called once every frame. this is useful for the logic of the game.<br />
+the <strong>_draw</strong> function is also called once every frame... however if the game is lagging, the draw function will wait, whereas the update function will keep running, resulting in low FPS, but the same gameplay.</p>
+<p>let's start by going into the sprite editor and drawing a player sprite. you can use any sprite slot, but I will use sprite slot 001.<br />
+<img src="./assets/pico8-playersprite.png" alt="pico8-playersprite.png" /><br />
+now let's go back into the code editor and type out our three functions.<br />
+<img src="./assets/pico8-corefunctions.png" alt="pico8-corefunctions.png" /><br />
+in this demo game, we'll have a player that can move around a 2D world with two screens.<br />
+to start, let's create some variables to store the player's position, and draw them in onto the screen using the <strong>spr</strong> command.<br />
+the screen of the pico-8 is 128x128 px large.<br />
+<img src="./assets/pico8-spr.png" alt="pico8-spr.png" /><br />
+<img src="./assets/pico8-nocls.png" alt="pico8-nocls.png" /><br />
+there it is! our player! but you may notice that the &quot;run&quot; text is still on screen.<br />
+this is because pico-8 <strong>does not clear the screen by default</strong>. let's add that in now by creating a map.<br />
+draw in some sprites for grass and a wall, and place them into your map editor, in a 16x16 grid of tiles.<br />
+now, just by calling the <strong>map</strong> function in our draw step, you can have your map rendered to the screen!<br />
+<img src="./assets/pico8-map1.png" alt="pico8-map1.png" /><br />
+<img src="./assets/pico8-map2.png" alt="pico8-map2.png" /><br />
+<img src="./assets/pico8-map3.png" alt="pico8-map3.png" /><br />
+this is great! now let's get the player moving.</p>
+<h3>inputs</h3>
+<p>let's write out our <strong>_update</strong> function now.<br />
+you can check for player input by using the <strong>btn</strong> function in the update step. it takes two arguments, but the second one is optional.<br />
+(you can write out direction symbols, and the X and O buttons by typing shift+L/R/U/D/X/O)<br />
+<img src="./assets/pico8-input1.png" alt="pico8-input2.png" /><br />
+<img src="./assets/pico8-input2.png" alt="pico8-input1.png" /><br />
+that's great! but we have one issue. the player can walk through walls. we haven't stopped them from doing so. let's do so now, using sprite flags.<br />
+to start, go back to the sprite editor to your wall sprite, and click on one of the eight circular buttons to set a flag we can check for in code.<br />
+<img src="./assets/pico8-setspriteflag.png" alt="pico8-setspriteflag.png" /><br />
+now, let's write a function to check sprite flags (as doing it manually would be quite repetitive)</p>
+<h3>helper function</h3>
+<p>in this function, we'll use the <strong>mget</strong> and <strong>fget</strong> functions to get the contents of the map at a position, and if it has a certain flag set.<br />
+<img src="./assets/pico8-checkfunction.png" alt="pico8-checkfunction.png" /><br />
+<img src="./assets/pico8-collisionprevention.png" alt="pico8-collisionprevention.png" /></p>
+<p>alright! your player should now be stopped by walls!<br />
+now, let's add a second screen.</p>
+<h3>moving the camera</h3>
+<p>start by drawing a collectible sprite (with its own flag) and creating a 16x16 screen to the right of your current one involving it. include an entryway to it on your first screen.<br />
+<img src="./assets/pico8-collectablesprite.png" alt="pico8-collectablesprite.png" /><br />
+<img src="./assets/pico8-collectablemaze.png" alt="pico8-collectablemaze.png" /><br />
+brilliant! let's test out our new screen by walking to the right and... oh.<br />
+we need to manually move the camera to the right when the player reaches the second screen.<br />
+go back to the <strong>_draw</strong> function in your code editor, and add this code snippet to it.<br />
+<img src="./assets/pico8-screencamera.png" alt="pico8-screencamera.png" /><br />
+this uses two new functions, <strong>flr</strong> and <strong>camera</strong>. flr is the standard floor function, and <strong>camera</strong> sets the origin of the game's camera to the position provided.<br />
+now, let's add</p>
+<h3>collectibles</h3>
+<p>let's add some new variables to our <strong>_init</strong> function.<br />
+<img src="./assets/pico8-collectiblecount.png" alt="pico8-collectiblecount.png" /><br />
+let's add some code to render how many we have!<br />
+<img src="./assets/pico8-collectibleprint.png" alt="pico8-collectibleprint.png" /><br />
+<img src="./assets/pico8-collectibledisplay.png" alt="pico8-collectibledisplay.png" /><br />
+this uses two new features. the <strong>..</strong> operator, and the <strong>print</strong> function. the <strong>..</strong> operator concatenates two strings (or converts numbers into strings). the <strong>print</strong> function has one, three, or four arguments.<br />
+you can just have <strong>print(&quot;text&quot;)</strong> to print some text to screen, <strong>print(&quot;text&quot;, x, y)</strong> to move it around, and <strong>print(&quot;text&quot;, x, y, col)</strong> to print it in a certain colour.<br />
+now, let's make it so you can actually pick up the collectibles!<br />
+add this to your <strong>_update</strong> function after the movement.<br />
+<img src="./assets/pico8-collecting.png" alt="pico8-collecting.png" /><br />
+this uses the <strong>mset</strong> function, which works quite like the <strong>mget</strong> function, except it has a third argument which determines what the tile will become.<br />
+this should work, but it's a bit bland. time to introduce...</p>
+<h3>the sound editor</h3>
+<p>here you can create sound effects and parts for music (which will come later).<br />
+let's create a simple sound effect for when the player collects a coin.<br />
+<img src="./assets/pico8-sfxeditor.png" alt="pico8-sfxeditor.png" /><br />
+if the sound effect is too fast or too slow, edit the &quot;spd&quot; value at the top. lower values are faster.<br />
+now go back to your code editor, and add the <strong>sfx</strong> function into your collectible code.<br />
+<img src="./assets/pico8-sfx.png" alt="pico8-sfx.png" /><br />
+now your sound effect should play when you collect the coin!<br />
+finally, let's add some...</p>
+<h3>music</h3>
+<p>go back to the sound editor, open a new sound, and click the other button at the top-left. this opens the <strong>tracker</strong> view for the sound effect you have selected.<br />
+== todo! the music editor! ==</p>
+<h2>other useful things</h2>
+
+  </main>
+  <nav>
+    <h1>what links here?</h1>
+    <a href=" index.html">index file</a><br>
+
+  </nav>
+</body>
+</html>
