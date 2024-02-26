@@ -1,0 +1,1 @@
+{"nodes":[{"id":"daily (at) 23-09-20","link":"/daily (at) 23-09-20.html","linktype":"var(--root)"},{"id":"somespec","link":"/somespec.html","linktype":"var(--flnode)"},{"id":"daily","link":"/daily.html","linktype":"var(--flnode)"}], "links":[{"source":"daily (at) 23-09-20","target":"somespec","value":2},{"source":"daily (at) 23-09-20","target":"daily","value":2}]}

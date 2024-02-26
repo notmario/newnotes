@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="">
+  <title>some spec practice</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/custom.css">
+  <link rel="icon" type="image/png" href="./assets/newfavicon.png">
+</head>
+<body>
+  <main>
+    <h1>some spec practice</h1>
+    <hr/>
+    <p>(if you don't have latex support, too bad!)</p>
+<h3>practice test</h3>
+<p>Q1a: $$a_{21}+b_{22}=2+6=8$$
+Q1b: $$A^2=\begin{bmatrix} -5 &amp; -6 \ 4 &amp; -5 \end{bmatrix}; A^2 + A - B = \begin{bmatrix} -8 &amp; -4 \ 3 &amp; -10 \end{bmatrix}; A^{-1} \times(A^2 + A + B) = X = \begin{bmatrix} \frac{1}{7} &amp; \frac{3}{7} \ -\frac{2}{7} &amp;\frac{1}{7} \end{bmatrix} $$
+Q1c: $$B^{-1} = \begin{bmatrix} \frac{6}{39} &amp; \frac{5}{39} \ -\frac{3}{39} &amp; \frac{4}{39} \end{bmatrix}; AB^{-1} =  \begin{bmatrix} \frac{5}{13} &amp; \frac{-7}{39} \ \frac{3}{13} &amp; \frac{14}{39}\end{bmatrix}$$
+Q1d: $$\begin{aligned}
+det(M) = M_{11}M_{22}-M_{12}M_{21} \
+X^{-1}=\frac{1}{det(X)}\begin{bmatrix} X_{22} &amp; -X_{12} \ -X_{21} &amp; X_{11}\end{bmatrix} \
+Y^{-1}=\frac{1}{det(Y)}\begin{bmatrix} Y_{22} &amp; -Y_{12} \ -Y_{21} &amp; Y_{11}\end{bmatrix} \
+Y^{-1}X^{-1}=\frac{1}{det(X) \times det(Y)}
+\begin{bmatrix}
+X_{22}Y_{22} + X_{12}Y_{21} &amp; -X_{22}Y_{12} - X_{12}Y_{11} &amp;\
+-X_{21}Y_{22} - X_{11}Y_{21} &amp; X_{12}Y_{21} + X_{11}Y_{11}
+\end{bmatrix} \
+XY \text{it was at this point i realised that none of this is needed.}
+\end{aligned}$$</p>
+<p>The fibonacci one: $$\begin{aligned}
+&amp;\text{Let }P(n)\text{ stand for } (f_1)^2 + (f_2)^2 + \space ... \space + (f_n)^2 = f_nf_{n+1}\text{.}&amp;\
+&amp;\text{First we prove P(1).} &amp;\
+P(1) :\space&amp;1^2=1\times1&amp;\
+&amp;\text{This is self-evidently true.}&amp;\
+&amp;\text{Now we assume }P(k)\text{ is true. }&amp;\
+&amp;\therefore (f_1)^2 + (f_2)^2 + \space ... \space + (f_k)^2 = f_kf_{k+1}\
+&amp;\text{Now we wish to prove } P(k+1) \text{.}&amp;\
+LHS&amp;=(f_1)^2 + (f_2)^2 + \space ... \space + (f_k)^2 + (f_{k+1})^2&amp;\
+&amp;\text{But }(f_1)^2 + (f_2)^2 + \space ... \space + (f_k)^2=f_kf_{k+1}\text{!}&amp;\
+\therefore LHS&amp;=f_kf_{k+1}+(f_{k+1})^2&amp;\
+&amp;=(f_k+f_{k+1})(f_{k+1})&amp;\
+&amp;\text{But }f_k+f_{k+1} = f_{k+2}\text{!}&amp;\
+\therefore LHS&amp;=f_{k+1}f_{k+2}=RHS&amp;\
+&amp;\text{As we have proven }P(1)\text{ and }P(k+1)\text{, by the Principle of Mathematical Induction, we have proven this for all integers.}&amp;\
+&amp;&amp;QED.
+\end{aligned}$$</p>
+  </main>
+  <nav>
+    <h1>what links here?</h1>
+    <a href=" daily (at) 23-09-20.html">daily (at) 23-09-20.html</a><br>
+
+  </nav>
+</body>
+</html>
