@@ -1,4 +1,4 @@
 ([back](daily.md))
 whoops again. uhh.  
   
-more stuff coming so
+more stuff coming soon but fr this time
